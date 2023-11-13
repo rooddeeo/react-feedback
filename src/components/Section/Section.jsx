@@ -1,35 +1,33 @@
+import React from 'react';
 import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions.jsx';
 import Statistics from 'components/Statistics/Statistics';
-import Notification from 'components/Statistics/Statistics';
+// import Notification from 'components/Notification/Notification';
 
-const Section = () => {
+const Section = ({ children, countFeedback, countTotalFeedback, countPositiveFeedbackPercentage }) => {
   return (
     <>
       <section title="Please leave feedback">
-        <FeedbackOptions onLeaveFeedback = {this.countFeedback}/>
+        <h2>Please leave feedback</h2>
+        <FeedbackOptions onLeaveFeedback={countFeedback} />
       </section>
 
       <section title="Statistics">
-        {this.countTotalFeedback() ? (<Statistics
-        good = {this.state.good}
-        neutral = {this.state.neutral}
-        bad = {this.state.bad}
-        total = {this.countTotalFeedback()}
-        positivePercentage = {this.countPositiveFeedbackPercentage()}
-        />
-        ) :(<Notification message="No feedbackgiven"/>)
-      }
+        <h2>Statistics</h2>
+        {countTotalFeedback() ? (
+          <Statistics
+            good={children.good}
+            neutral={children.neutral}
+            bad={children.bad}
+            total={countTotalFeedback()}
+            positivePercentage={countPositiveFeedbackPercentage()}
+          />
+        ) : (
+          "No feedback given"
+          // <Notification message="No feedback given" />
+        )}
       </section>
     </>
   );
 };
 
 export default Section;
-{/* <section >
-    <h2>{title}</h2>
-    {children}
-  </section> */}
-
-  // <Section title="Please leave feedback">
-  //         <FeedbackOptions .... />
-  //       </Section>

@@ -1,5 +1,6 @@
 import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions.jsx';
 import Statistics from 'components/Statistics/Statistics';
+import Notification from 'components/Statistics/Statistics';
 
 const Section = () => {
   return (

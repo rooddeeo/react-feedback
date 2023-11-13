@@ -6,12 +6,12 @@ import Statistics from 'components/Statistics/Statistics';
 const Section = ({ children, countFeedback, countTotalFeedback, countPositiveFeedbackPercentage }) => {
   return (
     <>
-      <section title="Please leave feedback">
+      <section>
         <h2>Please leave feedback</h2>
         <FeedbackOptions onLeaveFeedback={countFeedback} />
       </section>
 
-      <section title="Statistics">
+      <section>
         <h2>Statistics</h2>
         {countTotalFeedback() ? (
           <Statistics

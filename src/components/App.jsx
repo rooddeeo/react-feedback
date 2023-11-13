@@ -22,23 +22,26 @@ class App extends Component {
 
   countPositiveFeedbackPercentage = () => {
     const totalFeedback = this.countTotalFeedback();
-    return totalFeedback ? Math.round((this.state.good / totalFeedback) * 100) : 0;
+    return totalFeedback
+      ? Math.round((this.state.good / totalFeedback) * 100)
+      : 0;
   };
 
   render() {
     return (
       <>
-        <Section
-          countFeedback={this.countFeedback}
-          countTotalFeedback={this.countTotalFeedback}
-          countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage}
-        >
-          {
-            <>
-              <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.countFeedback} />
-              <Statistics stateStat={this.state} />
-            </>
-          }
+        <Section title="Please leave feedback">
+          <>
+            <FeedbackOptions
+              options={Object.keys(this.state)}
+              onLeaveFeedback={this.countFeedback}
+            />
+          </>
+        </Section>
+        <Section title="Statistics">
+          <>
+            <Statistics stateStat={this.state} />
+          </>
         </Section>
       </>
     );
